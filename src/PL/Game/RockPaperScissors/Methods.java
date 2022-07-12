@@ -1,7 +1,13 @@
 package src.PL.Game.RockPaperScissors;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+
+import static src.PL.Game.RockPaperScissors.Play.infinityMode;
+import static src.PL.Game.RockPaperScissors.Play.play;
 
 public class Methods {
 
@@ -11,8 +17,9 @@ public class Methods {
     static String level = Easy.getNameLevel();
     static int roundNumberPc = Easy.getRoundNumberPc();
     static int roundNumberHuman = Easy.getRoundNumberHuman();
-    public static void startGame() throws IOException {
 
+
+    public static void startGame() throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
 
         clearConsole();
@@ -25,17 +32,16 @@ public class Methods {
                         #                            #
                         #       Welcome in game      #
                         #   Rock, paper and scissor  #
-                        #                            #
-                        #        Press ENTER         #
-                        #       to continue...       #
                         #                            #""");
         for (int i = 0; i < 30; i++) {
             System.out.print("#");
         }
-        System.in.read();
+        System.out.println("");
+        TimeUnit.SECONDS.sleep(5);
+        menu();
     }
 
-    public static void menu() throws IOException {
+    public static void menu() throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
 
         clearConsole();
@@ -56,14 +62,16 @@ public class Methods {
 
         switch (number) {
             case 1:
-                newGame();
+                play();
                 break;
             case 2:
                 level();
                 break;
             case 3:
+                infinityMode();
                 break;
             case 4:
+                results();
                 break;
             case 5:
                 info();
@@ -79,19 +87,7 @@ public class Methods {
         }
     }
 
-    public static void newGame() {
-        clearConsole();
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter player name: ");
-        String name = scanner.nextLine();
-
-
-        System.out.println("Score: ");
-
-
-    }
-
-    public static void level() throws IOException {
+    public static void level() throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
         clearConsole();
         System.out.println("""
@@ -138,11 +134,28 @@ public class Methods {
             }
             case 4 -> menu();
         }
+    }
 
+    public static void results() throws IOException, InterruptedException {
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("output.txt"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        System.in.read();
+        menu();
     }
 
 
-    public static void info() throws IOException {
+    public static void info() throws IOException, InterruptedException {
         clearConsole();
         System.out.println(
                 """
@@ -162,7 +175,7 @@ public class Methods {
         menu();
     }
 
-    public static void exit() throws IOException {
+    public static void exit() throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
         clearConsole();
         System.out.println("Are You sure you want to exit?\n1. Yes\n2. No");
@@ -178,28 +191,23 @@ public class Methods {
 
         } while (!(choose.equals("1") || choose.equals("2")));
 
-
         int number = Integer.parseInt(choose);
         System.out.println(number);
 
-        if(number == 1){
+        if (number == 1) {
             clearConsole();
             System.out.println("Thanks for game");
             System.exit(0);
-        }
-        else{
+        } else {
             menu();
         }
     }
-
 
     public static void clearConsole() {
         for (int i = 0; i < 30; i++) {
             System.out.println(" ");
         }
     }
-
-
 }
 
 

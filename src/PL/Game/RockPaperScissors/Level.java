@@ -38,5 +38,4 @@ public class Level {
         this.nameLevel = nameLevel;
     }
 
-
 }

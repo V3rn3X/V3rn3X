@@ -1,16 +1,22 @@
 package src.PL.Game.RockPaperScissors;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Player {
 
     private String name;
 
+    public static void scores(String score){
 
-
-    public String getName() {
-        return name;
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt", true));
+            writer.write(score);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 }
