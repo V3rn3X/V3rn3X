@@ -172,7 +172,7 @@ public class Play {
             }
             infinity = 0;
 
-            String highScore = name + "\t " + scoreHuman + "\t " + scorePc + "\n";
+            String highScore = scoreHuman + "\t " + scorePc + "\t "+ name + "\n";
           scores(highScore);
           menu();
         }

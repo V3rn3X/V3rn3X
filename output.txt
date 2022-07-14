@@ -1,1 +1,5 @@
-Andrzej	 5	 2Hunter	 7	 4
+Human |  PC |  Nick
+10	 8	 Hunter
+12	 10	 Andrzej
+4	 1	 Ania
+13	 11	 Ala
