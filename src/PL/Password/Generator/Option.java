@@ -145,7 +145,6 @@ public class Option {
 
     public static void copy() throws IOException, InterruptedException {
 
-        String myString = "This text will be copied into clipboard";
         StringSelection stringSelection = new StringSelection(Tab.getPassword());
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(stringSelection, null);
