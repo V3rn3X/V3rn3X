@@ -66,7 +66,7 @@ public class Program {
                 generator();
                 break;
             case 8:
-
+                copy();
                 break;
 
             case 9:

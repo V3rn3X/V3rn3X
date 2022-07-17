@@ -2,8 +2,12 @@ package src.PL.Password.Generator;
 
 import src.PL.Password.Generator.Tab;
 
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.io.IOException;
 import java.util.*;
+import java.util.List;
 
 import static src.PL.Password.Generator.Program.start;
 
@@ -133,15 +137,22 @@ public class Option {
                 gen.add(password.get(random));
             }
 
-            for(String letter : gen) {
-                System.out.print(letter);
-            }
+            Tab.setPassword(String.join("",gen));
 
-
-            System.out.print("\nHaslo to ");
             start();
         }
     }
+
+    public static void copy() throws IOException, InterruptedException {
+
+        String myString = "This text will be copied into clipboard";
+        StringSelection stringSelection = new StringSelection(Tab.getPassword());
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(stringSelection, null);
+
+        start();
+    }
+
 
 
     public static void exit() throws IOException, InterruptedException {

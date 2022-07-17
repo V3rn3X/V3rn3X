@@ -77,7 +77,6 @@ public class Tab {
         Scanner scanner = new Scanner(System.in);
         String howLongSize;
         do {
-            System.out.print("Enter the number of students: ");
             howLongSize = scanner.nextLine();
 
         } while (!(howLongSize.matches("[0-9]+") && howLongSize.length() > 0));
