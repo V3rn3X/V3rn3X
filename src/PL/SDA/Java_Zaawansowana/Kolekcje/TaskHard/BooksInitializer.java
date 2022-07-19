@@ -1,4 +1,4 @@
-package src.PL.SDA.Java_Zaawansowana.Kolekcje.TaskHard;
+package PL.SDA.Java_Zaawansowana.Kolekcje.TaskHard;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

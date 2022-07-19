@@ -1,4 +1,4 @@
-package src.PL.SDA.Java_Zaawansowana.Zadania.Uno;
+package PL.SDA.Java_Zaawansowana.Zadania.Uno;
 
 class Circle implements Shape {
 

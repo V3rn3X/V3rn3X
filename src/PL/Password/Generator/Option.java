@@ -1,15 +1,15 @@
-package src.PL.Password.Generator;
-
-import src.PL.Password.Generator.Tab;
+package PL.Password.Generator;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
-import static src.PL.Password.Generator.Program.start;
+import static PL.Password.Generator.Program.start;
 
 
 public class Option {

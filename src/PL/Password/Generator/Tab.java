@@ -1,8 +1,8 @@
-package src.PL.Password.Generator;
+package PL.Password.Generator;
 
 import java.util.Scanner;
 
-import static src.PL.Password.Generator.Option.clearConsole;
+import static PL.Password.Generator.Option.clearConsole;
 
 public class Tab {
 

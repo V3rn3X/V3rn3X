@@ -1,4 +1,4 @@
-package src.PL.SDA.Java_Zaawansowana.Zadania.OOP_Calc;
+package PL.SDA.Java_Zaawansowana.Zadania.OOP_Calc;
 
 public class BasicCalculator {
 

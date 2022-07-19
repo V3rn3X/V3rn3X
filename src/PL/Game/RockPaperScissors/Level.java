@@ -1,4 +1,4 @@
-package src.PL.Game.RockPaperScissors;
+package PL.Game.RockPaperScissors;
 
 public class Level {
 

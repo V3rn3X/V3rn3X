@@ -1,4 +1,4 @@
-package src.PL.SDA.Java_Zaawansowana.Kolekcje.Task2;
+package PL.SDA.Java_Zaawansowana.Kolekcje.Task2;
 import java.util.Objects;
 public class Author {
 

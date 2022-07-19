@@ -1,181 +1,85 @@
-package src.PL.Game.RockPaperScissors;
+package PL.Game.RockPaperScissors;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
-import static src.PL.Game.RockPaperScissors.Play.infinityMode;
-import static src.PL.Game.RockPaperScissors.Play.play;
+import static PL.Game.RockPaperScissors.CommonlyMethod.*;
+
+import static PL.Game.RockPaperScissors.ReadWrite.readScores;
+import static PL.Game.RockPaperScissors.Switch.switchLevel;
+import static PL.Game.RockPaperScissors.Switch.switchMenu;
+import static PL.Game.RockPaperScissors.Text.*;
 
 public class Methods {
 
     static Level Easy = new Level(5, 3, "Easy");
     static Level Normal = new Level(5, 5, "Normal");
     static Level Hard = new Level(3, 5, "Hard");
-    static String level = Easy.getNameLevel();
-    static int roundNumberPc = Easy.getRoundNumberPc();
-    static int roundNumberHuman = Easy.getRoundNumberHuman();
+    static String level;
+    static int roundNumberPc;
+    static int roundNumberHuman;
 
 
-    public static void startGame() throws IOException, InterruptedException {
-        Scanner scanner = new Scanner(System.in);
+    public static void startGame(){
 
         clearConsole();
-        for (int i = 0; i < 30; i++) {
-            System.out.print("#");
-        }
-        System.out.println(
-                """
-
-                        #                            #
-                        #       Welcome in game      #
-                        #   Rock, paper and scissor  #
-                        #                            #""");
-        for (int i = 0; i < 30; i++) {
-            System.out.print("#");
-        }
-        System.out.println("");
-        TimeUnit.SECONDS.sleep(5);
+        welcome();
+        level = Easy.getNameLevel();
+        roundNumberPc = Easy.getRoundNumberPc();
+        roundNumberHuman = Easy.getRoundNumberHuman();
+        waiting(5);
         menu();
     }
 
-    public static void menu() throws IOException, InterruptedException {
+    public static void menu(){
         Scanner scanner = new Scanner(System.in);
-
         clearConsole();
         System.out.println("Choose one option below: \n1. New Game\n2. Level: " + level + "\n3. Infinity Mode\n4. HighScore\n5. Information \n6. Exit");
 
         String choose;
-
         do {
             choose = scanner.nextLine();
-            if (choose.equals("1") || choose.equals("2") || choose.equals("3") || choose.equals("4") || choose.equals("5") || choose.equals("6")) {
+            if (isaBoolean1to6(choose)) {
                 System.out.println("");
             } else {
-                System.out.println("Wrong option is selected \n Try again \n");
+                wrongOption();
             }
-        } while (!(choose.equals("1") || choose.equals("2") || choose.equals("3") || choose.equals("4") || choose.equals("5") || choose.equals("6")));
-
+        } while (!isaBoolean1to6(choose));
         int number = Integer.parseInt(choose);
-
-        switch (number) {
-            case 1:
-                play();
-                break;
-            case 2:
-                level();
-                break;
-            case 3:
-                infinityMode();
-                break;
-            case 4:
-                results();
-                break;
-            case 5:
-                info();
-                break;
-            case 6:
-                exit();
-                break;
-            default:
-                System.out.println("Wrong option is selected \n Try again \n\n Enter to continue... ");
-                System.in.read();
-                menu();
-                break;
-        }
+        switchMenu(number);
     }
 
-    public static void level() throws IOException, InterruptedException {
+    public static void level()  {
         Scanner scanner = new Scanner(System.in);
         clearConsole();
-        System.out.println("""
-                Select difficulty level (1-3):
-                1. Easy - The computer needs 5 points to win, the player needs 3 points to win
-                2. Normal - The computer needs 5 points to win, the player needs 5 points to win
-                3. Hard - The computer needs 3 points to win, the player needs 5 points to win
-
-                4. Return to menu""");
-
+        setLevel();
         String choose;
 
         do {
             choose = scanner.nextLine();
-            if (choose.equals("1") || choose.equals("2") || choose.equals("3") || choose.equals("4")) {
+            if (isaBoolean1to4(choose)) {
                 System.out.println(" ");
             } else {
-                System.out.println("Wrong option is selected \n Try again \n");
+                wrongOption();
             }
-
-        } while (!(choose.equals("1") || choose.equals("2") || choose.equals("3") || choose.equals("4")));
-
-
+        } while (!isaBoolean1to4(choose));
         int number = Integer.parseInt(choose);
-
-        switch (number) {
-            case 1 -> {
-                level = Easy.getNameLevel();
-                roundNumberPc = Easy.getRoundNumberPc();
-                roundNumberHuman = Easy.getRoundNumberHuman();
-                menu();
-            }
-            case 2 -> {
-                level = Normal.getNameLevel();
-                roundNumberPc = Normal.getRoundNumberPc();
-                roundNumberHuman = Normal.getRoundNumberHuman();
-                menu();
-            }
-            case 3 -> {
-                level = Hard.getNameLevel();
-                roundNumberPc = Hard.getRoundNumberPc();
-                roundNumberHuman = Hard.getRoundNumberHuman();
-                menu();
-            }
-            case 4 -> menu();
-        }
+        switchLevel(number);
     }
 
-    public static void results() throws IOException, InterruptedException {
-
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("output.txt"));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        System.in.read();
+    public static void results() {
+        readScores();
+        pressEnter();
         menu();
     }
 
-
-    public static void info() throws IOException, InterruptedException {
+    public static void info() {
         clearConsole();
-        System.out.println(
-                """
-                        Game Rule:\s
-                        Although the game has a lot of complexity to it, the rules to play it are pretty simple.
-                        The game is played where players deliver signals that will represent the elements of the game;
-                        rock, paper and scissors. The outcome of the game is determined by 3 simple rules:
-                        Rock wins against scissors.
-                        Scissors win against paper.
-                        Paper wins against rock.
-
-                        CREDITS:
-                        Mariusz Hunter Kuklinski
-
-                        [Press ENTER to return menu]""");
-        System.in.read();
+        information();
+        pressEnter();
         menu();
     }
 
-    public static void exit() throws IOException, InterruptedException {
+    public static void exit() {
         Scanner scanner = new Scanner(System.in);
         clearConsole();
         System.out.println("Are You sure you want to exit?\n1. Yes\n2. No");
@@ -183,13 +87,13 @@ public class Methods {
 
         do {
             choose = scanner.nextLine();
-            if (choose.equals("1") || choose.equals("2")) {
+            if (isaBoolean1to2(choose)) {
                 System.out.println(" ");
             } else {
-                System.out.println("Wrong option is selected \n Try again \n");
+                wrongOption();
             }
 
-        } while (!(choose.equals("1") || choose.equals("2")));
+        } while (!isaBoolean1to2(choose));
 
         int number = Integer.parseInt(choose);
         System.out.println(number);
@@ -203,11 +107,9 @@ public class Methods {
         }
     }
 
-    public static void clearConsole() {
-        for (int i = 0; i < 30; i++) {
-            System.out.println(" ");
-        }
-    }
+
+
+
 }
 
 

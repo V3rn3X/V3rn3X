@@ -1,4 +1,4 @@
-package src.PL.SDA.Java_Zaawansowana.Zadania.Dos;
+package PL.SDA.Java_Zaawansowana.Zadania.Dos;
 
 public class Point {
 

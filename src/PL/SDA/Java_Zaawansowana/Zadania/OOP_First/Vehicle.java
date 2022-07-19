@@ -1,4 +1,4 @@
-package src.PL.SDA.Java_Zaawansowana.Zadania.OOP_First;
+package PL.SDA.Java_Zaawansowana.Zadania.OOP_First;
 
 public abstract class Vehicle {
 

@@ -1,10 +1,10 @@
-package src.PL.Password.Generator;
+package PL.Password.Generator;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-import static src.PL.Password.Generator.Option.*;
-import static src.PL.Password.Generator.Tab.*;
+import static PL.Password.Generator.Option.*;
+import static PL.Password.Generator.Tab.*;
 
 public class Program {
 
