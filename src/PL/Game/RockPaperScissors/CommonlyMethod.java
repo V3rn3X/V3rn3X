@@ -5,12 +5,12 @@ import java.util.concurrent.TimeUnit;
 
 public class CommonlyMethod {
 
-    public static void pressEnter(){
+    public static void pressEnter() {
         Scanner scanner = new Scanner(System.in);
         String enter = scanner.nextLine();
     }
 
-    public static void waiting(int time){
+    public static void waiting(int time) {
         try {
             TimeUnit.SECONDS.sleep(time);
         } catch (InterruptedException e) {
@@ -39,6 +39,4 @@ public class CommonlyMethod {
     public static boolean isaBoolean1to2(String choose) {
         return choose.equals("1") || choose.equals("2");
     }
-
-
 }

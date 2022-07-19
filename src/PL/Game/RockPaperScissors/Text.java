@@ -6,19 +6,19 @@ import static PL.Game.RockPaperScissors.Player.getName;
 
 public class Text {
 
-    public static void pcRock(){
+    public static void pcRock() {
         System.out.println("PC Player chosen a Rock");
     }
 
-    public static void pcPaper(){
+    public static void pcPaper() {
         System.out.println("PC Player chosen a Paper");
     }
 
-    public static void pcScissors(){
+    public static void pcScissors() {
         System.out.println("PC Player chosen a Scissors");
     }
 
-    public static void tie(){
+    public static void tie() {
         System.out.println("Tie!");
     }
 

@@ -5,9 +5,7 @@ import static PL.Game.RockPaperScissors.Methods.*;
 import static PL.Game.RockPaperScissors.Play.*;
 
 public class Switch {
-
-    public static void
-    switchMenu(int choose) {
+    public static void switchMenu(int choose) {
         switch (choose) {
             case 1:
                 play();
@@ -34,25 +32,24 @@ public class Switch {
                 break;
         }
     }
-
     public static void switchLevel(int choose) {
         switch (choose) {
             case 1:
-                level = Methods.Easy.getNameLevel();
-                roundNumberPc = Methods.Easy.getRoundNumberPc();
-                roundNumberHuman = Methods.Easy.getRoundNumberHuman();
+                level = Methods.EASY.getNameLevel();
+                roundNumberPc = Methods.EASY.getRoundNumberPc();
+                roundNumberHuman = Methods.EASY.getRoundNumberHuman();
                 menu();
                 break;
             case 2:
-                level = Methods.Normal.getNameLevel();
-                roundNumberPc = Methods.Normal.getRoundNumberPc();
-                roundNumberHuman = Methods.Normal.getRoundNumberHuman();
+                level = Methods.NORMAL.getNameLevel();
+                roundNumberPc = Methods.NORMAL.getRoundNumberPc();
+                roundNumberHuman = Methods.NORMAL.getRoundNumberHuman();
                 menu();
                 break;
             case 3:
-                level = Methods.Hard.getNameLevel();
-                roundNumberPc = Methods.Hard.getRoundNumberPc();
-                roundNumberHuman = Methods.Hard.getRoundNumberHuman();
+                level = Methods.HARD.getNameLevel();
+                roundNumberPc = Methods.HARD.getRoundNumberPc();
+                roundNumberHuman = Methods.HARD.getRoundNumberHuman();
                 menu();
                 break;
             case 4:
@@ -60,18 +57,17 @@ public class Switch {
                 break;
         }
     }
-
     public static void switchRockPaperScissors(int choose) {
         switch (choose) {
-            case 1 -> {
+            case 1:
                 rock();
-            }
-            case 2 -> {
+                break;
+            case 2:
                 paper();
-            }
-            case 3 -> {
+                break;
+            case 3:
                 scissors();
-            }
+                break;
         }
     }
 }

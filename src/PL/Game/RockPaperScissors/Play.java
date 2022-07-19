@@ -12,25 +12,20 @@ import static PL.Game.RockPaperScissors.Switch.switchRockPaperScissors;
 import static PL.Game.RockPaperScissors.Text.*;
 
 public class Play {
-
     static int scorePc = 0;
     static int scoreHuman = 0;
-    //static String name;
     static int pcThrow;
     static int number;
-
     static int infinity;
 
     public static void play() {
-
         clearConsole();
         scorePc = 0;
         scoreHuman = 0;
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter player name: ");
-        setName(scanner.nextLine()) ;
-
+        setName(scanner.nextLine());
         clearConsole();
         System.out.println("Start Game - - - Loading");
         System.out.print("#");
@@ -41,16 +36,12 @@ public class Play {
         waiting(1);
         System.out.print("######### 100%");
         waiting(1);
-
         play1();
     }
 
     public static void play1() {
         Scanner scanner = new Scanner(System.in);
-
-
         String userThrow;
-
         pcThrow = (int) (Math.random() * (4 - 1)) + 1;
         clearConsole();
         System.out.println("Choose Your weapon: \n1. Rock\n2. Paper\n3. Scissors");
@@ -66,12 +57,10 @@ public class Play {
         number = Integer.parseInt(userThrow);
         switchRockPaperScissors(number);
     }
-
     public static void infinityMode() {
         infinity = 1;
         play();
     }
-
     public static void rock() {
         System.out.println("You have chosen a Rock");
         if (pcThrow == 1) {
@@ -93,7 +82,6 @@ public class Play {
             endGame();
         }
     }
-
     public static void paper() {
         System.out.println("You have chosen a Paper");
         if (pcThrow == 1) {
@@ -115,7 +103,6 @@ public class Play {
             endGame();
         }
     }
-
     public static void scissors() {
         System.out.println("You have chosen a Scissors");
         if (pcThrow == 1) {
@@ -137,8 +124,6 @@ public class Play {
             endGame();
         }
     }
-
-
     public static void endGame() {
         Scanner scanner = new Scanner(System.in);
         String userThrow;
@@ -163,11 +148,11 @@ public class Play {
             scores(highScore);
             menu();
         } else {
-            if (Objects.equals(level, Easy.getNameLevel()) && ((Easy.getRoundNumberHuman() == (scoreHuman)) || (Easy.getRoundNumberPc() == scorePc))) {
+            if (Objects.equals(level, EASY.getNameLevel()) && ((EASY.getRoundNumberHuman() == (scoreHuman)) || (EASY.getRoundNumberPc() == scorePc))) {
                 win();
-            } else if (Objects.equals(level, Normal.getNameLevel()) && ((Normal.getRoundNumberHuman() == (scoreHuman)) || (Normal.getRoundNumberPc() == scorePc))) {
+            } else if (Objects.equals(level, NORMAL.getNameLevel()) && ((NORMAL.getRoundNumberHuman() == (scoreHuman)) || (NORMAL.getRoundNumberPc() == scorePc))) {
                 win();
-            } else if (Objects.equals(level, Hard.getNameLevel()) && ((Hard.getRoundNumberHuman() == (scoreHuman)) || (Hard.getRoundNumberPc() == scorePc))) {
+            } else if (Objects.equals(level, HARD.getNameLevel()) && ((HARD.getRoundNumberHuman() == (scoreHuman)) || (HARD.getRoundNumberPc() == scorePc))) {
                 win();
             } else {
                 pressEnter();
@@ -175,11 +160,10 @@ public class Play {
             }
         }
     }
-
     public static void win() {
-        if(Objects.equals(level, Easy.getNameLevel()) && Easy.getRoundNumberHuman() == scoreHuman ||
-                Objects.equals(level, Normal.getNameLevel()) && Normal.getRoundNumberHuman() == scoreHuman ||
-                Objects.equals(level, Hard.getNameLevel()) && Hard.getRoundNumberHuman() == scoreHuman) {
+        if (Objects.equals(level, EASY.getNameLevel()) && EASY.getRoundNumberHuman() == scoreHuman ||
+                Objects.equals(level, NORMAL.getNameLevel()) && NORMAL.getRoundNumberHuman() == scoreHuman ||
+                Objects.equals(level, HARD.getNameLevel()) && HARD.getRoundNumberHuman() == scoreHuman) {
             clearConsole();
             youWin();
             pressEnter();

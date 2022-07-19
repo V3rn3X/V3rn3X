@@ -10,27 +10,22 @@ import static PL.Game.RockPaperScissors.Switch.switchMenu;
 import static PL.Game.RockPaperScissors.Text.*;
 
 public class Methods {
-
-    static Level Easy = new Level(5, 3, "Easy");
-    static Level Normal = new Level(5, 5, "Normal");
-    static Level Hard = new Level(3, 5, "Hard");
+    final static Level EASY = new Level(5, 3, "Easy");
+    final static Level NORMAL = new Level(5, 5, "Normal");
+    final static Level HARD = new Level(3, 5, "Hard");
     static String level;
     static int roundNumberPc;
     static int roundNumberHuman;
-
-
-    public static void startGame(){
-
+    public static void startGame() {
         clearConsole();
         welcome();
-        level = Easy.getNameLevel();
-        roundNumberPc = Easy.getRoundNumberPc();
-        roundNumberHuman = Easy.getRoundNumberHuman();
+        level = EASY.getNameLevel();
+        roundNumberPc = EASY.getRoundNumberPc();
+        roundNumberHuman = EASY.getRoundNumberHuman();
         waiting(5);
         menu();
     }
-
-    public static void menu(){
+    public static void menu() {
         Scanner scanner = new Scanner(System.in);
         clearConsole();
         System.out.println("Choose one option below: \n1. New Game\n2. Level: " + level + "\n3. Infinity Mode\n4. HighScore\n5. Information \n6. Exit");
@@ -47,8 +42,7 @@ public class Methods {
         int number = Integer.parseInt(choose);
         switchMenu(number);
     }
-
-    public static void level()  {
+    public static void level() {
         Scanner scanner = new Scanner(System.in);
         clearConsole();
         setLevel();
@@ -65,20 +59,17 @@ public class Methods {
         int number = Integer.parseInt(choose);
         switchLevel(number);
     }
-
     public static void results() {
         readScores();
         pressEnter();
         menu();
     }
-
     public static void info() {
         clearConsole();
         information();
         pressEnter();
         menu();
     }
-
     public static void exit() {
         Scanner scanner = new Scanner(System.in);
         clearConsole();
@@ -92,7 +83,6 @@ public class Methods {
             } else {
                 wrongOption();
             }
-
         } while (!isaBoolean1to2(choose));
 
         int number = Integer.parseInt(choose);
@@ -106,10 +96,6 @@ public class Methods {
             menu();
         }
     }
-
-
-
-
 }
 
 
