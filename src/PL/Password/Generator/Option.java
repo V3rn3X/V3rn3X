@@ -3,13 +3,15 @@ package PL.Password.Generator;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import static PL.Password.Generator.CommonlyMethods.clearConsole;
+import static PL.Password.Generator.CommonlyMethods.isaBoolean1to2;
 import static PL.Password.Generator.Program.start;
+import static PL.Password.Generator.Tab.*;
 
 
 public class Option {
@@ -21,71 +23,43 @@ public class Option {
     }
 
     public static String little() {
-        Tab little = new Tab();
-        String l;
-        if (!little.isActivateLittle()) {
-            l = "1. [ ] little";
-        } else {
-            l = "1. [*] little";
-        }
-        return l;
+
+        return isActivateLittle() ? "1. [*] little" : "1. [ ] little";
     }
 
     public static String big() {
-        Tab big = new Tab();
-        String b;
-        if (!big.isActivateBig()) {
-            b = "2. [ ] big";
-        } else {
-            b = "2. [*] big";
-        }
-        return b;
+        return isActivateBig() ? "2. [*] big" : "2. [ ] big";
     }
 
     public static String number() {
-        Tab number = new Tab();
-        String n;
-        if (!number.isActivateNumber()) {
-            n = "3. [ ] number";
-        } else {
-            n = "3. [*] number";
-        }
-        return n;
+        return isActivateNumber() ? "3. [*] number" : "2. [ ] number";
     }
 
     public static String symbol() {
-        Tab symbol = new Tab();
-        String s;
-        if (!symbol.isActivateSymbol()) {
-            s = "4. [ ] symbol";
-        } else {
-            s = "4. [*] symbol";
-        }
-        return s;
+        return isActivateSymbol() ? "4. [*] symbol" : "2. [ ] symbol";
     }
 
 
-    public static void changeStatus(int choose) throws IOException, InterruptedException {
-        Tab tab = new Tab();
+    public static void changeStatus(int choose) {
 
         if (choose == 1) {
-            Tab.setActivateLittle(!tab.isActivateLittle());
-            if (tab.isActivateLittle()) {
+            setActivateLittle(!isActivateLittle());
+            if (isActivateLittle()) {
                 countTab++;
             } else countTab--;
         } else if (choose == 2) {
-            Tab.setActivateBig(!tab.isActivateBig());
-            if (tab.isActivateBig()) {
+            setActivateBig(!isActivateBig());
+            if (isActivateBig()) {
                 countTab++;
             } else countTab--;
         } else if (choose == 3) {
-            Tab.setActivateNumber(!tab.isActivateNumber());
-            if (tab.isActivateNumber()) {
+            setActivateNumber(!isActivateNumber());
+            if (isActivateNumber()) {
                 countTab++;
             } else countTab--;
         } else if (choose == 4) {
-            Tab.setActivateSymbol(!tab.isActivateSymbol());
-            if (Tab.isActivateSymbol()) {
+            setActivateSymbol(!isActivateSymbol());
+            if (isActivateSymbol()) {
                 countTab++;
             } else countTab--;
         }
@@ -94,8 +68,7 @@ public class Option {
     }
 
 
-    public static void generator() throws IOException, InterruptedException {
-        Tab tab = new Tab();
+    public static void generator() {
 
         if (countTab == 0) {
             Tab.setPassword("None of the options have been selected");
@@ -104,29 +77,22 @@ public class Option {
 
             List<String> password = new ArrayList<>();
 
-            if(tab.isActivateLittle()){
-                for (int i = 0; i < tab.getLittle().length; i++) {
-                    password.add(tab.getLittle1(i));
-                }
+            if (isActivateLittle()) {
+                password.addAll(getLittle());
             }
 
-            if(tab.isActivateBig()){
-                for (int i = 0; i < tab.getBig().length; i++) {
-                    password.add(tab.getBig1(i));
-                }
+            if (isActivateBig()) {
+                password.addAll(getBig());
             }
 
-            if(tab.isActivateNumber()){
-                for (int i = 0; i < tab.getNumber().length; i++) {
-                    password.add(tab.getNumber1(i));
-                }
+            if (isActivateNumber()) {
+                password.addAll(getNumber());
             }
 
-            if(tab.isActivateSymbol()){
-                for (int i = 0; i < tab.getSymbol().length; i++) {
-                    password.add(tab.getSymbol1(i));
-                }
+            if (isActivateSymbol()) {
+                password.addAll(getSymbol());
             }
+
             Random rand = new Random();
             int upperbound = password.size();
             int random;
@@ -136,14 +102,17 @@ public class Option {
                 random = rand.nextInt(upperbound);
                 gen.add(password.get(random));
             }
+            setPassword(String.join("", gen));
 
-            Tab.setPassword(String.join("",gen));
+            if (!getPhrase().equals("")) {
+                passWithPhrase();
+            }
 
             start();
         }
     }
 
-    public static void copy() throws IOException, InterruptedException {
+    public static void copy() {
 
         StringSelection stringSelection = new StringSelection(Tab.getPassword());
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -152,9 +121,7 @@ public class Option {
         start();
     }
 
-
-
-    public static void exit() throws IOException, InterruptedException {
+    public static void exit() {
         Scanner scanner = new Scanner(System.in);
         clearConsole();
         System.out.println("Are You sure you want to exit?\n1. Yes\n2. No");
@@ -162,32 +129,23 @@ public class Option {
 
         do {
             choose = scanner.nextLine();
-            if (choose.equals("1") || choose.equals("2")) {
+            if (isaBoolean1to2(choose)) {
                 System.out.println(" ");
             } else {
                 System.out.println("Wrong option is selected \n Try again \n");
             }
 
-        } while (!(choose.equals("1") || choose.equals("2")));
+        } while (!isaBoolean1to2(choose));
 
         int number = Integer.parseInt(choose);
         System.out.println(number);
 
         if (number == 1) {
             clearConsole();
-            System.out.println("Thanks for game");
+            System.out.println("Thanks for use app");
             System.exit(0);
         } else {
             start();
         }
     }
-
-
-    public static void clearConsole() {
-        for (int i = 0; i < 30; i++) {
-            System.out.println(" ");
-        }
-    }
-
-
 }

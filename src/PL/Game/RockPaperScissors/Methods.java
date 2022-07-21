@@ -16,6 +16,7 @@ public class Methods {
     static String level;
     static int roundNumberPc;
     static int roundNumberHuman;
+
     public static void startGame() {
         clearConsole();
         welcome();
@@ -25,6 +26,7 @@ public class Methods {
         waiting(5);
         menu();
     }
+
     public static void menu() {
         Scanner scanner = new Scanner(System.in);
         clearConsole();
@@ -42,6 +44,7 @@ public class Methods {
         int number = Integer.parseInt(choose);
         switchMenu(number);
     }
+
     public static void level() {
         Scanner scanner = new Scanner(System.in);
         clearConsole();
@@ -59,17 +62,20 @@ public class Methods {
         int number = Integer.parseInt(choose);
         switchLevel(number);
     }
+
     public static void results() {
         readScores();
         pressEnter();
         menu();
     }
+
     public static void info() {
         clearConsole();
         information();
         pressEnter();
         menu();
     }
+
     public static void exit() {
         Scanner scanner = new Scanner(System.in);
         clearConsole();

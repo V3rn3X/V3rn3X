@@ -12,6 +12,7 @@ public class ReadWrite {
             e.printStackTrace();
         }
     }
+
     public static void readScores() {
         try {
             BufferedReader reader = new BufferedReader(new FileReader("output.txt"));
@@ -24,6 +25,7 @@ public class ReadWrite {
             e.printStackTrace();
         }
     }
+
     public static void youWin() {
         try {
             BufferedReader reader = new BufferedReader(new FileReader("youwin.txt"));
@@ -36,6 +38,7 @@ public class ReadWrite {
             e.printStackTrace();
         }
     }
+
     public static void youLose() {
         try {
             BufferedReader reader = new BufferedReader(new FileReader("youlose.txt"));

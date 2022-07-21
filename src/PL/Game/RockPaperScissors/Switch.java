@@ -32,6 +32,7 @@ public class Switch {
                 break;
         }
     }
+
     public static void switchLevel(int choose) {
         switch (choose) {
             case 1:
@@ -57,6 +58,7 @@ public class Switch {
                 break;
         }
     }
+
     public static void switchRockPaperScissors(int choose) {
         switch (choose) {
             case 1:

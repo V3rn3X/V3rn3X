@@ -57,10 +57,12 @@ public class Play {
         number = Integer.parseInt(userThrow);
         switchRockPaperScissors(number);
     }
+
     public static void infinityMode() {
         infinity = 1;
         play();
     }
+
     public static void rock() {
         System.out.println("You have chosen a Rock");
         if (pcThrow == 1) {
@@ -82,6 +84,7 @@ public class Play {
             endGame();
         }
     }
+
     public static void paper() {
         System.out.println("You have chosen a Paper");
         if (pcThrow == 1) {
@@ -103,6 +106,7 @@ public class Play {
             endGame();
         }
     }
+
     public static void scissors() {
         System.out.println("You have chosen a Scissors");
         if (pcThrow == 1) {
@@ -124,6 +128,7 @@ public class Play {
             endGame();
         }
     }
+
     public static void endGame() {
         Scanner scanner = new Scanner(System.in);
         String userThrow;
@@ -160,6 +165,7 @@ public class Play {
             }
         }
     }
+
     public static void win() {
         if (Objects.equals(level, EASY.getNameLevel()) && EASY.getRoundNumberHuman() == scoreHuman ||
                 Objects.equals(level, NORMAL.getNameLevel()) && NORMAL.getRoundNumberHuman() == scoreHuman ||
