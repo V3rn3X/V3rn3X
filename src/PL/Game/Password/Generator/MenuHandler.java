@@ -1,12 +1,6 @@
-package PL.Password.Generator;
+package PL.Game.Password.Generator;
 
-import static PL.Password.Generator.Option.*;
-import static PL.Password.Generator.Option.exit;
-import static PL.Password.Generator.Program.start;
-import static PL.Password.Generator.Tab.phrase;
-import static PL.Password.Generator.Tab.setHowLong;
-
-public class Switch {
+public class MenuHandler {
 
     public static void menuSwitch(int choose) {
 
@@ -15,24 +9,24 @@ public class Switch {
             case 2:
             case 3:
             case 4:
-                changeStatus(choose);
+                ChosenOptionHandler.changeStatus(choose);
                 break;
             case 5:
-                phrase();
-                start();
+                Tab.phrase();
+                Program.start();
                 break;
             case 6:
-                setHowLong();
-                start();
+                Tab.setLength();
+                Program.start();
                 break;
             case 7:
-                generator();
+                ChosenOptionHandler.generator();
                 break;
             case 8:
-                copy();
+                ChosenOptionHandler.copy();
                 break;
             case 9:
-                exit();
+                ChosenOptionHandler.exit();
                 break;
             default:
                 System.out.println("Wrong option is selected \n Try again \n\n Enter to continue... ");

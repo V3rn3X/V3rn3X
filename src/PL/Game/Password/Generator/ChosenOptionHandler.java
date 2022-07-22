@@ -1,4 +1,4 @@
-package PL.Password.Generator;
+package PL.Game.Password.Generator;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import static PL.Password.Generator.CommonlyMethods.clearConsole;
-import static PL.Password.Generator.CommonlyMethods.isaBoolean1to2;
-import static PL.Password.Generator.Program.start;
-import static PL.Password.Generator.Tab.*;
+import static PL.Game.Password.Generator.CommonMethods.clearConsole;
+import static PL.Game.Password.Generator.CommonMethods.isaBoolean1to2;
+import static PL.Game.Password.Generator.Program.start;
+import static PL.Game.Password.Generator.Tab.*;
 
 
-public class Option {
+public class ChosenOptionHandler {
 
     private static int countTab = 4;
 
@@ -98,7 +98,7 @@ public class Option {
             int random;
             List<String> gen = new ArrayList<>();
 
-            for (int i = 0; i < Tab.getHowLong(); i++) {
+            for (int i = 0; i < Tab.getLength(); i++) {
                 random = rand.nextInt(upperbound);
                 gen.add(password.get(random));
             }

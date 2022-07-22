@@ -3,15 +3,18 @@ package PL.Game.RockPaperScissors;
 import java.util.Objects;
 import java.util.Scanner;
 
-import static PL.Game.RockPaperScissors.CommonlyMethod.*;
-import static PL.Game.RockPaperScissors.Methods.*;
+import static PL.Game.RockPaperScissors.CommonMethod.*;
+import static PL.Game.RockPaperScissors.GameRoot.*;
 import static PL.Game.RockPaperScissors.Player.getName;
 import static PL.Game.RockPaperScissors.Player.setName;
 import static PL.Game.RockPaperScissors.ReadWrite.*;
-import static PL.Game.RockPaperScissors.Switch.switchRockPaperScissors;
-import static PL.Game.RockPaperScissors.Text.*;
+import static PL.Game.RockPaperScissors.MenuHandler.switchRockPaperScissors;
+import static PL.Game.RockPaperScissors.TextPrinter.*;
+
+
 
 public class Play {
+
     static int scorePc = 0;
     static int scoreHuman = 0;
     static int pcThrow;
@@ -29,13 +32,13 @@ public class Play {
         clearConsole();
         System.out.println("Start Game - - - Loading");
         System.out.print("#");
-        waiting(1);
+        CommonMethod.wait(1);
         System.out.print("#######");
-        waiting(1);
+        CommonMethod.wait(1);
         System.out.print("####");
-        waiting(1);
+        CommonMethod.wait(1);
         System.out.print("######### 100%");
-        waiting(1);
+        CommonMethod.wait(1);
         play1();
     }
 
@@ -153,11 +156,11 @@ public class Play {
             scores(highScore);
             menu();
         } else {
-            if (Objects.equals(level, EASY.getNameLevel()) && ((EASY.getRoundNumberHuman() == (scoreHuman)) || (EASY.getRoundNumberPc() == scorePc))) {
+            if (Objects.equals(getLevel(), EASY.getNameLevel()) && ((EASY.getRoundNumberHuman() == (scoreHuman)) || (EASY.getRoundNumberPc() == scorePc))) {
                 win();
-            } else if (Objects.equals(level, NORMAL.getNameLevel()) && ((NORMAL.getRoundNumberHuman() == (scoreHuman)) || (NORMAL.getRoundNumberPc() == scorePc))) {
+            } else if (Objects.equals(getLevel(), NORMAL.getNameLevel()) && ((NORMAL.getRoundNumberHuman() == (scoreHuman)) || (NORMAL.getRoundNumberPc() == scorePc))) {
                 win();
-            } else if (Objects.equals(level, HARD.getNameLevel()) && ((HARD.getRoundNumberHuman() == (scoreHuman)) || (HARD.getRoundNumberPc() == scorePc))) {
+            } else if (Objects.equals(getLevel(), HARD.getNameLevel()) && ((HARD.getRoundNumberHuman() == (scoreHuman)) || (HARD.getRoundNumberPc() == scorePc))) {
                 win();
             } else {
                 pressEnter();
@@ -167,9 +170,9 @@ public class Play {
     }
 
     public static void win() {
-        if (Objects.equals(level, EASY.getNameLevel()) && EASY.getRoundNumberHuman() == scoreHuman ||
-                Objects.equals(level, NORMAL.getNameLevel()) && NORMAL.getRoundNumberHuman() == scoreHuman ||
-                Objects.equals(level, HARD.getNameLevel()) && HARD.getRoundNumberHuman() == scoreHuman) {
+        if (Objects.equals(getLevel(), EASY.getNameLevel()) && EASY.getRoundNumberHuman() == scoreHuman ||
+                Objects.equals(getLevel(), NORMAL.getNameLevel()) && NORMAL.getRoundNumberHuman() == scoreHuman ||
+                Objects.equals(getLevel(), HARD.getNameLevel()) && HARD.getRoundNumberHuman() == scoreHuman) {
             clearConsole();
             youWin();
             pressEnter();

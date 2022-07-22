@@ -1,9 +1,9 @@
-package PL.Password.Generator;
+package PL.Game.Password.Generator;
 
 import java.util.Scanner;
 import java.util.Set;
 
-import static PL.Password.Generator.CommonlyMethods.clearConsole;
+import static PL.Game.Password.Generator.CommonMethods.clearConsole;
 
 public class Tab {
 
@@ -66,8 +66,8 @@ public class Tab {
         Scanner scanner = new Scanner(System.in);
         phrase = scanner.nextLine();
 
-        if (getPhrase().length() >= getHowLong()) {
-            setHowLong1();
+        if (getPhrase().length() >= getLength()) {
+            setLength1();
         }
 
         return phrase;
@@ -78,7 +78,7 @@ public class Tab {
     }
 
     public static void passWithPhrase() {
-        int max = getHowLong() - getPhrase().length();
+        int max = getLength() - getPhrase().length();
         int min = 0;
         int range = max - min + 1;
         int randIndex = (int) (Math.random() * range) + min;
@@ -88,11 +88,11 @@ public class Tab {
     }
 
 
-    public static int getHowLong() {
+    public static int getLength() {
         return howLong;
     }
 
-    public static int setHowLong() {
+    public static int setLength() {
         clearConsole();
         System.out.println("Please provide how long the password should be:\n");
         Scanner scanner = new Scanner(System.in);
@@ -103,13 +103,13 @@ public class Tab {
         } while (!(howLongSize.matches("[0-9]+") && howLongSize.length() > 0));
         howLong = Integer.parseInt(howLongSize);
 
-        if (getPhrase().length() >= getHowLong()) {
+        if (getPhrase().length() >= getLength()) {
             phrase1();
         }
         return howLong;
     }
 
-    public static void setHowLong1() {
+    public static void setLength1() {
         howLong = getPhrase().length() + 1;
     }
 

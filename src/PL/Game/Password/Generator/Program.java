@@ -1,10 +1,9 @@
-package PL.Password.Generator;
+package PL.Game.Password.Generator;
 
 import java.util.Scanner;
 
-import static PL.Password.Generator.CommonlyMethods.isaBoolean1to9;
-import static PL.Password.Generator.MenuText.menuText;
-import static PL.Password.Generator.Switch.menuSwitch;
+import static PL.Game.Password.Generator.CommonMethods.isaBoolean1to9;
+import static PL.Game.Password.Generator.MenuHandler.menuSwitch;
 
 public class Program {
 
@@ -13,7 +12,7 @@ public class Program {
         Scanner scanner = new Scanner(System.in);
         String choose;
 
-        menuText();
+        MenuTextPrinter.menuText();
 
         do {
             choose = scanner.nextLine();

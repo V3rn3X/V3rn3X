@@ -1,10 +1,10 @@
 package PL.Game.RockPaperScissors;
 
-import static PL.Game.RockPaperScissors.CommonlyMethod.pressEnter;
-import static PL.Game.RockPaperScissors.Methods.*;
+import static PL.Game.RockPaperScissors.CommonMethod.pressEnter;
+import static PL.Game.RockPaperScissors.GameRoot.*;
 import static PL.Game.RockPaperScissors.Play.*;
 
-public class Switch {
+public class MenuHandler {
     public static void switchMenu(int choose) {
         switch (choose) {
             case 1:
@@ -36,21 +36,21 @@ public class Switch {
     public static void switchLevel(int choose) {
         switch (choose) {
             case 1:
-                level = Methods.EASY.getNameLevel();
-                roundNumberPc = Methods.EASY.getRoundNumberPc();
-                roundNumberHuman = Methods.EASY.getRoundNumberHuman();
+                setLevel(GameRoot.EASY.getNameLevel());
+                roundNumberPc = GameRoot.EASY.getRoundNumberPc();
+                roundNumberHuman = GameRoot.EASY.getRoundNumberHuman();
                 menu();
                 break;
             case 2:
-                level = Methods.NORMAL.getNameLevel();
-                roundNumberPc = Methods.NORMAL.getRoundNumberPc();
-                roundNumberHuman = Methods.NORMAL.getRoundNumberHuman();
+                setLevel(GameRoot.NORMAL.getNameLevel());
+                roundNumberPc = GameRoot.NORMAL.getRoundNumberPc();
+                roundNumberHuman = GameRoot.NORMAL.getRoundNumberHuman();
                 menu();
                 break;
             case 3:
-                level = Methods.HARD.getNameLevel();
-                roundNumberPc = Methods.HARD.getRoundNumberPc();
-                roundNumberHuman = Methods.HARD.getRoundNumberHuman();
+                setLevel(GameRoot.HARD.getNameLevel());
+                roundNumberPc = GameRoot.HARD.getRoundNumberPc();
+                roundNumberHuman = GameRoot.HARD.getRoundNumberHuman();
                 menu();
                 break;
             case 4:

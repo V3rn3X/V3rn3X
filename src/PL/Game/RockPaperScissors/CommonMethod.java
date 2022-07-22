@@ -3,14 +3,14 @@ package PL.Game.RockPaperScissors;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-public class CommonlyMethod {
+public class CommonMethod {
 
     public static void pressEnter() {
         Scanner scanner = new Scanner(System.in);
         String enter = scanner.nextLine();
     }
 
-    public static void waiting(int time) {
+    public static void wait(int time) {
         try {
             TimeUnit.SECONDS.sleep(time);
         } catch (InterruptedException e) {
@@ -19,9 +19,7 @@ public class CommonlyMethod {
     }
 
     public static void clearConsole() {
-        for (int i = 0; i < 30; i++) {
-            System.out.println(" ");
-        }
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
 
     public static boolean isaBoolean1to6(String choose) {

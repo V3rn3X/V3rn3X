@@ -1,11 +1,9 @@
-package PL.Password.Generator;
+package PL.Game.Password.Generator;
 
-public class CommonlyMethods {
+public class CommonMethods {
 
     public static void clearConsole() {
-        for (int i = 0; i < 30; i++) {
-            System.out.println(" ");
-        }
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
 
     public static boolean isaBoolean1to9(String choose) {

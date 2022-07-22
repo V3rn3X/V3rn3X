@@ -2,20 +2,31 @@ package PL.Game.RockPaperScissors;
 
 import java.util.Scanner;
 
-import static PL.Game.RockPaperScissors.CommonlyMethod.*;
+import static PL.Game.RockPaperScissors.CommonMethod.*;
 
 import static PL.Game.RockPaperScissors.ReadWrite.readScores;
-import static PL.Game.RockPaperScissors.Switch.switchLevel;
-import static PL.Game.RockPaperScissors.Switch.switchMenu;
-import static PL.Game.RockPaperScissors.Text.*;
+import static PL.Game.RockPaperScissors.MenuHandler.switchLevel;
+import static PL.Game.RockPaperScissors.MenuHandler.switchMenu;
+import static PL.Game.RockPaperScissors.TextPrinter.*;
 
-public class Methods {
+public class GameRoot {
     final static Level EASY = new Level(5, 3, "Easy");
     final static Level NORMAL = new Level(5, 5, "Normal");
     final static Level HARD = new Level(3, 5, "Hard");
-    static String level;
+
+
+
+    private static String level;
     static int roundNumberPc;
     static int roundNumberHuman;
+
+    public static String getLevel() {
+        return level;
+    }
+
+    public static void setLevel(String level) {
+        GameRoot.level = level;
+    }
 
     public static void startGame() {
         clearConsole();
@@ -23,7 +34,7 @@ public class Methods {
         level = EASY.getNameLevel();
         roundNumberPc = EASY.getRoundNumberPc();
         roundNumberHuman = EASY.getRoundNumberHuman();
-        waiting(5);
+        CommonMethod.wait(5);
         menu();
     }
 
@@ -48,7 +59,7 @@ public class Methods {
     public static void level() {
         Scanner scanner = new Scanner(System.in);
         clearConsole();
-        setLevel();
+        infoLevel();
         String choose;
 
         do {

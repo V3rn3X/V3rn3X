@@ -4,7 +4,7 @@ import static PL.Game.RockPaperScissors.Play.scoreHuman;
 import static PL.Game.RockPaperScissors.Play.scorePc;
 import static PL.Game.RockPaperScissors.Player.getName;
 
-public class Text {
+public class TextPrinter {
 
     public static void pcRock() {
         System.out.println("PC Player chosen a Rock");
@@ -47,7 +47,7 @@ public class Text {
         System.out.println("[Press ENTER to return menu]");
     }
 
-    public static void setLevel() {
+    public static void infoLevel() {
         System.out.println("Select difficulty level (1-3):");
         System.out.println("1. Easy - The computer needs 5 points to win, the player needs 3 points to win");
         System.out.println("2. Normal - The computer needs 5 points to win, the player needs 5 points to win");
