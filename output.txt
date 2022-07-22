@@ -4,3 +4,5 @@ Human |  PC |  Nick
 4	 1	 Ania
 13	 11	 Ala
 3	 3	 Ala
+0	 1	 G
+1	 1	 Hrt

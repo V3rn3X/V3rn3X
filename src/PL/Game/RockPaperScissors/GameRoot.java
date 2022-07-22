@@ -15,7 +15,6 @@ public class GameRoot {
     final static Level HARD = new Level(3, 5, "Hard");
 
 
-
     private static String level;
     static int roundNumberPc;
     static int roundNumberHuman;
@@ -43,16 +42,7 @@ public class GameRoot {
         clearConsole();
         System.out.println("Choose one option below: \n1. New Game\n2. Level: " + level + "\n3. Infinity Mode\n4. HighScore\n5. Information \n6. Exit");
 
-        String choose;
-        do {
-            choose = scanner.nextLine();
-            if (isaBoolean1to6(choose)) {
-                System.out.println("");
-            } else {
-                wrongOption();
-            }
-        } while (!isaBoolean1to6(choose));
-        int number = Integer.parseInt(choose);
+        int number = isaBoolean(4);
         switchMenu(number);
     }
 
@@ -60,17 +50,7 @@ public class GameRoot {
         Scanner scanner = new Scanner(System.in);
         clearConsole();
         infoLevel();
-        String choose;
-
-        do {
-            choose = scanner.nextLine();
-            if (isaBoolean1to4(choose)) {
-                System.out.println(" ");
-            } else {
-                wrongOption();
-            }
-        } while (!isaBoolean1to4(choose));
-        int number = Integer.parseInt(choose);
+        int number = isaBoolean(6);
         switchLevel(number);
     }
 
@@ -88,22 +68,9 @@ public class GameRoot {
     }
 
     public static void exit() {
-        Scanner scanner = new Scanner(System.in);
         clearConsole();
         System.out.println("Are You sure you want to exit?\n1. Yes\n2. No");
-        String choose;
-
-        do {
-            choose = scanner.nextLine();
-            if (isaBoolean1to2(choose)) {
-                System.out.println(" ");
-            } else {
-                wrongOption();
-            }
-        } while (!isaBoolean1to2(choose));
-
-        int number = Integer.parseInt(choose);
-        System.out.println(number);
+        int number = isaBoolean(2);
 
         if (number == 1) {
             clearConsole();

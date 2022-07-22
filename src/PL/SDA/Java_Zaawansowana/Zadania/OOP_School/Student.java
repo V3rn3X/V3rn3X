@@ -2,7 +2,7 @@ package PL.SDA.Java_Zaawansowana.Zadania.OOP_School;
 
 import java.math.BigDecimal;
 
-public class Student extends Person{
+public class Student extends Person {
 
     private String type;
     private int year;

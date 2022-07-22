@@ -71,7 +71,7 @@ public class ChosenOptionHandler {
     public static void generator() {
 
         if (countTab == 0) {
-            Tab.setPassword("None of the options have been selected");
+            setPassword("None of the options have been selected");
             start();
         } else {
 

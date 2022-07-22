@@ -11,8 +11,6 @@ import static PL.Game.RockPaperScissors.ReadWrite.*;
 import static PL.Game.RockPaperScissors.MenuHandler.switchRockPaperScissors;
 import static PL.Game.RockPaperScissors.TextPrinter.*;
 
-
-
 public class Play {
 
     static int scorePc = 0;
@@ -43,21 +41,11 @@ public class Play {
     }
 
     public static void play1() {
-        Scanner scanner = new Scanner(System.in);
-        String userThrow;
         pcThrow = (int) (Math.random() * (4 - 1)) + 1;
         clearConsole();
         System.out.println("Choose Your weapon: \n1. Rock\n2. Paper\n3. Scissors");
 
-        do {
-            userThrow = scanner.nextLine();
-            if (isaBoolean1to3(userThrow)) {
-                System.out.println(" ");
-            } else {
-                wrongOption();
-            }
-        } while (!isaBoolean1to3(userThrow));
-        number = Integer.parseInt(userThrow);
+        int number = isaBoolean(3);
         switchRockPaperScissors(number);
     }
 
@@ -133,20 +121,9 @@ public class Play {
     }
 
     public static void endGame() {
-        Scanner scanner = new Scanner(System.in);
-        String userThrow;
         if (infinity == 1) {
             System.out.println("\nDo you want continue?\n1. Yes\n2. No");
-            do {
-                userThrow = scanner.nextLine();
-                if (isaBoolean1to2(userThrow)) {
-                    System.out.println(" ");
-                } else {
-                    wrongOption();
-                }
-            } while (!isaBoolean1to2(userThrow));
-
-            number = Integer.parseInt(userThrow);
+            int number = isaBoolean(2);
             if (number == 1) {
                 play1();
             }

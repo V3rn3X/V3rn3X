@@ -2,7 +2,7 @@ package PL.SDA.Java_Zaawansowana.Zadania.OOP_School;
 
 import java.math.BigDecimal;
 
-public class Lecturer extends Person{
+public class Lecturer extends Person {
 
     private String spec;
     private BigDecimal wage;

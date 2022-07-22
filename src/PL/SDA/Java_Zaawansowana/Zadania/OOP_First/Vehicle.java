@@ -8,13 +8,13 @@ public abstract class Vehicle {
 
     abstract void runEngine();
 
-    public Vehicle(String name, int engine,short year){
+    public Vehicle(String name, int engine, short year) {
         this.name = name;
         this.engine = engine;
         this.year = year;
     }
 
-    public String describe(){
+    public String describe() {
         return ("Jestem " + name + " z silniekiem " + engine + " mój rok produkcji to " + year);
     }
 }

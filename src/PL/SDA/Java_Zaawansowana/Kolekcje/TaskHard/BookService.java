@@ -23,8 +23,8 @@ public class BookService {
 //    }
 
 
-    public static void preview(List<Book> books){
-        for(Book book : books){
+    public static void preview(List<Book> books) {
+        for (Book book : books) {
             System.out.println(book);
         }
 

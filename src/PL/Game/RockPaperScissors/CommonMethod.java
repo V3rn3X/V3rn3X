@@ -3,6 +3,8 @@ package PL.Game.RockPaperScissors;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+import static PL.Game.RockPaperScissors.TextPrinter.wrongOption;
+
 public class CommonMethod {
 
     public static void pressEnter() {
@@ -22,19 +24,26 @@ public class CommonMethod {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
 
-    public static boolean isaBoolean1to6(String choose) {
-        return choose.equals("1") || choose.equals("2") || choose.equals("3") || choose.equals("4") || choose.equals("5") || choose.equals("6");
+
+    public static boolean exitLoop(int choose, int max) {
+        return choose > max || choose < 1;
     }
 
-    public static boolean isaBoolean1to4(String choose) {
-        return choose.equals("1") || choose.equals("2") || choose.equals("3") || choose.equals("4");
-    }
+    public static int isaBoolean(int max) {
+        Scanner scanner = new Scanner(System.in);
+        int choose = 10;
 
-    public static boolean isaBoolean1to3(String userThrow) {
-        return userThrow.equals("1") || userThrow.equals("2") || userThrow.equals("3");
-    }
-
-    public static boolean isaBoolean1to2(String choose) {
-        return choose.equals("1") || choose.equals("2");
+        while (exitLoop(choose, max)) {
+            try {
+                choose = Integer.parseInt(scanner.nextLine());
+            } catch (Exception e) {
+                wrongOption();
+                choose = isaBoolean(max);
+            }
+            if (exitLoop(choose, max)) {
+                wrongOption();
+            }
+        }
+        return choose;
     }
 }
