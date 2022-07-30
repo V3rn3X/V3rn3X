@@ -1,4 +1,4 @@
-package src.PL.SDA.Java_Zaawansowana.Kolekcje.Task2;
+package PL.SDA.Java_Zaawansowana.Kolekcje.Task2;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -30,7 +30,7 @@ public class Main {
         int size = authors.size();
         System.out.println("Collection size is: " + size);
 
-        for (Author author : authors){
+        for (Author author : authors) {
             System.out.println(author);
         }
 
@@ -41,23 +41,20 @@ public class Main {
 
         System.out.println("##################");
 
-        for (Author author : authors){
-            if (author.getFirstName().length() + author.getLastName().length() > 11){
+        for (Author author : authors) {
+            if (author.getFirstName().length() + author.getLastName().length() > 11) {
                 System.out.println(author);
             }
         }
 
         int i = 0;
-        for (Author author : authors){
+        for (Author author : authors) {
 
-            if (author.getFirstName().length() + author.getLastName().length() > 11){
+            if (author.getFirstName().length() + author.getLastName().length() > 11) {
                 i++;
             }
         }
         System.out.println("There is " + i + " such authors");
-
-
-
 
 
     }

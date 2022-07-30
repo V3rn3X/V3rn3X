@@ -1,4 +1,7 @@
-package src.PL.SDA.Java_Zaawansowana.Kolekcje.TaskHard;
+package PL.SDA.Java_Zaawansowana.Kolekcje.TaskHard;
+
+import PL.SDA.Java_Zaawansowana.Kolekcje.TaskHard.Author;
+import PL.SDA.Java_Zaawansowana.Kolekcje.TaskHard.Gender;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package src.PL.SDA.Java_Zaawansowana.Zadania.Enum_Weekday;
+package PL.SDA.Java_Zaawansowana.Zadania.Enum_Weekday;
 
 public enum Weekday {
 

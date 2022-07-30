@@ -1,21 +1,13 @@
-package src.PL.Game.RockPaperScissors;
-
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+package PL.Game.RockPaperScissors;
 
 public class Player {
+    private static String nick;
 
-    private String name;
+    public static String getName() {
+        return nick;
+    }
 
-    public static void scores(String score){
-
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt", true));
-            writer.write(score);
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void setName(String name) {
+        nick = name;
     }
 }

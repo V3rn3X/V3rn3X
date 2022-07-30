@@ -1,4 +1,4 @@
-package src.PL.SDA.Java_Zaawansowana.Zadania.OOP_Calc;
+package PL.SDA.Java_Zaawansowana.Zadania.OOP_Calc;
 
 public class BasicCalculator {
 
@@ -7,7 +7,7 @@ public class BasicCalculator {
         System.out.println("X - Y = " + (x - y));
         System.out.println("X * Y = " + (x * y));
         if (y != 0) {
-            System.out.println("X / Y = " + (x / (float)y));
+            System.out.println("X / Y = " + (x / (float) y));
         } else {
             System.out.println("Cannot divide by 0");
         }

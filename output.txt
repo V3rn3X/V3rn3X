@@ -3,3 +3,8 @@ Human |  PC |  Nick
 12	 10	 Andrzej
 4	 1	 Ania
 13	 11	 Ala
+3	 3	 Ala
+0	 1	 G
+1	 1	 Hrt
+0	 0	 ffew
+0	 1	 htr

@@ -1,10 +1,9 @@
-package src.PL.Game.RockPaperScissors;
+package PL.Game.RockPaperScissors;
 
-import java.io.IOException;
-import static src.PL.Game.RockPaperScissors.Methods.startGame;
+import static PL.Game.RockPaperScissors.GameRoot.startGame;
 
 public class Main {
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) {
         startGame();
     }
 }

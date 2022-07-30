@@ -1,4 +1,4 @@
-package src.PL.SDA.Java_Zaawansowana.Zadania.OOP_Third;
+package PL.SDA.Java_Zaawansowana.Zadania.OOP_Third;
 
 public class Main {
     public static void main(String[] args) {
@@ -36,11 +36,11 @@ class Duck implements Animal {
 
     String color;
 
-    public Duck(String color){
+    public Duck(String color) {
         this.color = color;
     }
 
-    public void move(){
+    public void move() {
         System.out.println("I am a flying " + color + " duck");
     }
 }

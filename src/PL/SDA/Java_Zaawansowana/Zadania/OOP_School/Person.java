@@ -1,11 +1,11 @@
-package src.PL.SDA.Java_Zaawansowana.Zadania.OOP_School;
+package PL.SDA.Java_Zaawansowana.Zadania.OOP_School;
 
 public class Person {
 
     private String name;
     private String address;
 
-    public Person(){
+    public Person() {
         this.name = "";
         this.name = "";
     }
@@ -31,7 +31,7 @@ public class Person {
         this.address = address;
     }
 
-    public String toString(){
+    public String toString() {
         return this.name + " -> " + this.address;
     }
 }

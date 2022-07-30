@@ -1,4 +1,4 @@
-package src.PL.SDA.Java_Zaawansowana.Kolekcje.Przyklad;
+package PL.SDA.Java_Zaawansowana.Kolekcje.Przyklad;
 
 import java.util.Iterator;
 import java.util.Set;

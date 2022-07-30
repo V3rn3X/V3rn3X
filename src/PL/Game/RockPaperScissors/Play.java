@@ -1,222 +1,163 @@
-package src.PL.Game.RockPaperScissors;
+package PL.Game.RockPaperScissors;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.util.Objects;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
-import static src.PL.Game.RockPaperScissors.Methods.*;
-import static src.PL.Game.RockPaperScissors.Player.scores;
+import static PL.Game.RockPaperScissors.CommonMethod.*;
+import static PL.Game.RockPaperScissors.GameRoot.*;
+import static PL.Game.RockPaperScissors.Player.getName;
+import static PL.Game.RockPaperScissors.Player.setName;
+import static PL.Game.RockPaperScissors.ReadWrite.*;
+import static PL.Game.RockPaperScissors.MenuHandler.switchRockPaperScissors;
+import static PL.Game.RockPaperScissors.TextPrinter.*;
 
 public class Play {
 
     static int scorePc = 0;
     static int scoreHuman = 0;
-    static String name;
     static int pcThrow;
     static int number;
-
     static int infinity;
 
-    public static void play() throws IOException, InterruptedException {
-
+    public static void play() {
         clearConsole();
         scorePc = 0;
         scoreHuman = 0;
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter player name: ");
-        name = scanner.nextLine();
-
+        setName(scanner.nextLine());
         clearConsole();
         System.out.println("Start Game - - - Loading");
         System.out.print("#");
-        TimeUnit.SECONDS.sleep(1);
+        CommonMethod.wait(1);
         System.out.print("#######");
-        TimeUnit.SECONDS.sleep(1);
+        CommonMethod.wait(1);
         System.out.print("####");
-        TimeUnit.SECONDS.sleep(1);
+        CommonMethod.wait(1);
         System.out.print("######### 100%");
-        TimeUnit.SECONDS.sleep(1);
-
+        CommonMethod.wait(1);
         play1();
     }
 
-    public static void play1() throws IOException, InterruptedException {
-        Scanner scanner = new Scanner(System.in);
-
-
-        String userThrow;
-
+    public static void play1() {
         pcThrow = (int) (Math.random() * (4 - 1)) + 1;
         clearConsole();
         System.out.println("Choose Your weapon: \n1. Rock\n2. Paper\n3. Scissors");
 
-        do {
-            userThrow = scanner.nextLine();
-            if (userThrow.equals("1") || userThrow.equals("2") || userThrow.equals("3")) {
-                System.out.println(" ");
-            } else {
-                System.out.println("Wrong option is selected \n Try again \n");
-            }
-
-        } while (!(userThrow.equals("1") || userThrow.equals("2") || userThrow.equals("3")));
-
-        number = Integer.parseInt(userThrow);
-
-        switch (number) {
-            case 1 -> {
-                rock();
-            }
-            case 2 -> {
-                paper();
-            }
-            case 3 -> {
-                scissors();
-            }
-        }
+        int number = isaBoolean(3);
+        switchRockPaperScissors(number);
     }
 
-    public static void infinityMode() throws IOException, InterruptedException {
+    public static void infinityMode() {
         infinity = 1;
         play();
     }
 
-
-    public static void rock() throws IOException, InterruptedException {
+    public static void rock() {
         System.out.println("You have chosen a Rock");
         if (pcThrow == 1) {
-            System.out.println("PC Player chosen a Rock");
-            System.out.println("Tie!");
-            System.out.println("Score " + name + " " + scoreHuman + " - " + scorePc + " PC");
+            pcRock();
+            tie();
+            points();
             endGame();
         } else if (pcThrow == 2) {
-            System.out.println("PC Player chosen a Paper");
-            System.out.println("PC Player Win!");
+            pcPaper();
+            pcWin();
             scorePc++;
-            System.out.println("Score " + name + " " + scoreHuman + " - " + scorePc + " PC");
+            points();
             endGame();
         } else {
-            System.out.println("PC Player chosen a Scissors");
-            System.out.println(name + " Win!");
+            pcScissors();
+            playerWin();
             scoreHuman++;
-            System.out.println("Score " + name + " " + scoreHuman + " - " + scorePc + " PC");
+            points();
             endGame();
         }
     }
 
-    public static void paper() throws IOException, InterruptedException {
+    public static void paper() {
         System.out.println("You have chosen a Paper");
         if (pcThrow == 1) {
-            System.out.println("PC Player chosen a Rock");
-            System.out.println(name + " Win!");
+            pcRock();
+            playerWin();
             scoreHuman++;
-            System.out.println("Score " + name + " " + scoreHuman + " - " + scorePc + " PC");
+            points();
             endGame();
         } else if (pcThrow == 2) {
-            System.out.println("PC Player chosen a Paper");
-            System.out.println("Tie!");
-            System.out.println("Score " + name + " " + scoreHuman + " - " + scorePc + " PC");
+            pcPaper();
+            tie();
+            points();
             endGame();
         } else {
-            System.out.println("PC Player chosen a Scissors");
-            System.out.println("PC Player Win!");
+            pcScissors();
+            pcWin();
             scorePc++;
-            System.out.println("Score " + name + " " + scoreHuman + " - " + scorePc + " PC");
+            points();
             endGame();
         }
     }
 
-    public static void scissors() throws IOException, InterruptedException {
+    public static void scissors() {
         System.out.println("You have chosen a Scissors");
         if (pcThrow == 1) {
-            System.out.println("PC Player chosen a Rock");
-            System.out.println("PC Player Win!");
+            pcRock();
+            pcWin();
             scorePc++;
-            System.out.println("Score " + name + " " + scoreHuman + " - " + scorePc + " PC");
+            points();
             endGame();
         } else if (pcThrow == 2) {
-            System.out.println("PC Player chosen a Paper");
-            System.out.println(name + " Win!");
+            pcPaper();
+            playerWin();
             scoreHuman++;
-            System.out.println("Score " + name + " " + scoreHuman + " - " + scorePc + " PC");
+            points();
             endGame();
         } else {
-            System.out.println("PC Player chosen a Scissors");
-            System.out.println("Tie!");
-            System.out.println("Score " + name + " " + scoreHuman + " - " + scorePc + " PC");
+            pcScissors();
+            tie();
+            points();
             endGame();
         }
     }
 
-
-    public static void endGame() throws IOException, InterruptedException {
-        Scanner scanner = new Scanner(System.in);
-        String userThrow;
+    public static void endGame() {
         if (infinity == 1) {
             System.out.println("\nDo you want continue?\n1. Yes\n2. No");
-            do {
-                userThrow = scanner.nextLine();
-                if (userThrow.equals("1") || userThrow.equals("2")) {
-                    System.out.println(" ");
-                } else {
-                    System.out.println("Wrong option is selected \n Try again \n");
-                }
-
-            } while (!(userThrow.equals("1") || userThrow.equals("2")));
-
-            number = Integer.parseInt(userThrow);
-            if (number == 1){
+            int number = isaBoolean(2);
+            if (number == 1) {
                 play1();
             }
             infinity = 0;
 
-            String highScore = scoreHuman + "\t " + scorePc + "\t "+ name + "\n";
-          scores(highScore);
-          menu();
-        }
-
-        else {
-            if ((Easy.getRoundNumberHuman() == (scoreHuman)) || (Easy.getRoundNumberPc() == scorePc) ||
-                    (Normal.getRoundNumberHuman() == (scoreHuman)) || (Normal.getRoundNumberPc() == scorePc) ||
-                    (Hard.getRoundNumberHuman() == (scoreHuman)) || (Hard.getRoundNumberPc() == scorePc)) {
+            String highScore = scoreHuman + "\t " + scorePc + "\t " + getName() + "\n";
+            scores(highScore);
+            menu();
+        } else {
+            if (Objects.equals(getLevel(), EASY.getNameLevel()) && ((EASY.getRoundNumberHuman() == (scoreHuman)) || (EASY.getRoundNumberPc() == scorePc))) {
+                win();
+            } else if (Objects.equals(getLevel(), NORMAL.getNameLevel()) && ((NORMAL.getRoundNumberHuman() == (scoreHuman)) || (NORMAL.getRoundNumberPc() == scorePc))) {
+                win();
+            } else if (Objects.equals(getLevel(), HARD.getNameLevel()) && ((HARD.getRoundNumberHuman() == (scoreHuman)) || (HARD.getRoundNumberPc() == scorePc))) {
                 win();
             } else {
-                System.in.read();
+                pressEnter();
                 play1();
             }
         }
     }
 
-    public static void win() throws IOException, InterruptedException {
-        if ((Easy.getRoundNumberHuman() == (scoreHuman))) {
+    public static void win() {
+        if (Objects.equals(getLevel(), EASY.getNameLevel()) && EASY.getRoundNumberHuman() == scoreHuman ||
+                Objects.equals(getLevel(), NORMAL.getNameLevel()) && NORMAL.getRoundNumberHuman() == scoreHuman ||
+                Objects.equals(getLevel(), HARD.getNameLevel()) && HARD.getRoundNumberHuman() == scoreHuman) {
             clearConsole();
-            try {
-                BufferedReader reader = new BufferedReader(new FileReader("youwin.txt"));
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    System.out.println(line);
-                }
-                reader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            System.in.read();
+            youWin();
+            pressEnter();
             menu();
         } else {
             clearConsole();
-            try {
-                BufferedReader reader = new BufferedReader(new FileReader("youlose.txt"));
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    System.out.println(line);
-                }
-                reader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            System.in.read();
+            youLose();
+            pressEnter();
             menu();
         }
     }

@@ -1,4 +1,5 @@
-package src.PL.SDA.Java_Zaawansowana.Kolekcje.Przyklad;
+package PL.SDA.Java_Zaawansowana.Kolekcje.Przyklad;
+
 import java.util.Iterator;
 import java.util.Set;
 import java.util.HashSet; // ctrl + b
@@ -15,7 +16,7 @@ public class SetFun {
         System.out.println(names.add("Sara"));
 
 
-        for(String name : names) {
+        for (String name : names) {
             System.out.println(name);
         }
 
@@ -30,7 +31,6 @@ public class SetFun {
 
         boolean grzegorz = names.remove("Grzegorz");
         System.out.println("Grzegorz was successfully removed: " + grzegorz);
-
 
 
         Iterator<String> iterator = names.iterator();
@@ -50,7 +50,6 @@ public class SetFun {
         System.out.println(names);
 
         System.out.println();
-
 
 
     }

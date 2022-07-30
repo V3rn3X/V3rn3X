@@ -1,4 +1,4 @@
-package src.PL.SDA.Java_Zaawansowana.Kolekcje.TaskHard;
+package PL.SDA.Java_Zaawansowana.Kolekcje.TaskHard;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -23,8 +23,8 @@ public class BookService {
 //    }
 
 
-    public static void preview(List<Book> books){
-        for(Book book : books){
+    public static void preview(List<Book> books) {
+        for (Book book : books) {
             System.out.println(book);
         }
 
