@@ -2,6 +2,10 @@ package PL.SDA.streams.model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 public class Person {
@@ -62,4 +66,18 @@ public class Person {
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
+
+
+    public Long getAge() {
+        LocalDateTime birthDateTime = convertToLocalDateViaInstant(birthDate).atStartOfDay();
+        LocalDateTime now = LocalDate.now().atStartOfDay();
+        return ChronoUnit.YEARS.between(birthDateTime, now);
+    }
+
+    private LocalDate convertToLocalDateViaInstant(Date dateToConvert) {
+        return dateToConvert.toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
+    }
+
 }
